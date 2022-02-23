@@ -1,0 +1,94 @@
+byte boton_3 = digitalRead(PIN_BOTON_3);
+
+if ((boton_4 == 1) && (game_over == 0)){
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("Juego de");
+  lcd.setCursor(0, 1);
+  lcd.print("Reflejos");
+  digitalWrite(PIN_SALIDA, HIGH); //Encendemos el led de salida
+  delay(random(10000)); //Tiempo aleatorio entre 1 y 5 segundos
+  digitalWrite(PIN_SALIDA, LOW);}//Pistoletazo de salida
+ 
+  byte boton_1 = digitalRead(PIN_BOTON_1);
+  byte boton_2 = digitalRead(PIN_BOTON_2);
+  byte boton_3 = digitalRead(PIN_BOTON_3);
+  
+  if ((boton_1 == 1) && (game_over == 0)) { //Jorge gana
+    digitalWrite(PIN_LED_1, HIGH);
+    game_over = 1;
+      // Play coin sound
+  tone(8,NOTE_E6,125);
+  delay(130);
+  tone(8,NOTE_G6,125);
+  delay(130);
+  tone(8,NOTE_E7,125);
+  delay(130);
+  tone(8,NOTE_C7,125);
+  delay(130);
+  tone(8,NOTE_D7,125);
+  delay(130);
+  tone(8,NOTE_G7,125);
+  delay(125);
+  noTone(8);
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("Jorge ha");
+  lcd.setCursor(0, 1);
+  lcd.print("ganado!");
+   Serial.println("El Jorge fue el ganador!");
+  }
+  if ((boton_2 == 1) && (game_over == 0)) { //Juan gana
+    digitalWrite(PIN_LED_2, HIGH);
+    game_over = 1;
+      // Play coin sound
+  tone(8,NOTE_E6,125);
+  delay(130);
+  tone(8,NOTE_G6,125);
+  delay(130);
+  tone(8,NOTE_E7,125);
+  delay(130);
+  tone(8,NOTE_C7,125);
+  delay(130);
+  tone(8,NOTE_D7,125);
+  delay(130);
+  tone(8,NOTE_G7,125);
+  delay(125);
+  noTone(8);
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("Juan ha");
+  lcd.setCursor(0, 1);
+  lcd.print("ganado!");
+    Serial.println("El Juan fue el ganador!");
+  }
+  if ((boton_3 == 1) && (game_over == 0)) { //Ricardo gana
+    digitalWrite(PIN_LED_3, HIGH);
+    game_over = 1;
+      // Play coin sound
+  tone(8,NOTE_E6,125);
+  delay(130);
+  tone(8,NOTE_G6,125);
+  delay(130);
+  tone(8,NOTE_E7,125);
+  delay(130);
+  tone(8,NOTE_C7,125);
+  delay(130);
+  tone(8,NOTE_D7,125);
+  delay(130);
+  tone(8,NOTE_G7,125);
+  delay(125);
+  noTone(8);
+      lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("Ricardo ha");
+  lcd.setCursor(0, 1);
+  lcd.print("ganado!");
+    Serial.println("El Ricardo fue el ganador!");
+  }
+  delay(1000); //Una pausa 
+}
